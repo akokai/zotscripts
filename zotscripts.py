@@ -41,7 +41,7 @@ def all_coll_items(zot, *args, **kwargs):
             yield item
 
 
-def coll_names_keys(colls_list, *args, **kwargs):
+def coll_names_keys(colls_list):
     """
     Return dict of names: keys for all collections in the given list.
 
@@ -72,6 +72,12 @@ def coll_key_from_name(name, colls_list):
 
 
 def autotag_subcoll_items(zot, key):
+    """
+    Tag items with the name of the containing subcollection.
+
+    Operates on every item in each subcollection of the collection
+    identified by the key.
+    """
     subcolls = zot.collections_sub(key)
     subcoll_names_keys = coll_names_keys(subcolls)
     for (name, key) in subcoll_names_keys.items():
