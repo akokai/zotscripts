@@ -1,5 +1,4 @@
 settings.py
-*.txt
 
 # Operating system junk
 .DS_Store
