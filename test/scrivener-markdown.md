@@ -7,11 +7,11 @@ csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa
 
 # Big subject #
 
-All statements should have citations [@wikipediacontributorsWikipedia2019]. Some statements need more than one citation [@barnesScience1985; @barnesKuhnSocialScience1982; @kuhnStructureScientificRevolutions1962].
+All statements should have citations [@wikipediacontributorsWikipedia2019]. Some statements need more than one citation [e.g. @barnesScience1985; @barnesKuhnSocialScience1982; @kuhnStructureScientificRevolutions1962].
 
 ## Little subject ##
 
-All biodiversity data should be open [@bouchoutdeclarationBouchoutDeclarationOpen2014]---but not necessarily in one uniform organizing system [@bowkerBiodiversityDatadiversity2000].
+All biodiversity data should be open [see @bouchoutdeclarationBouchoutDeclarationOpen2014, p. 1]---but not necessarily in one uniform organizing system [@bowkerBiodiversityDatadiversity2000].
 
 Chemical data: same same, but different [@nationalcenterforbiotechnologyinformationncbiPubChem].
 
