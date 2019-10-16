@@ -30,7 +30,7 @@ def process_citation(parsed, collected, bib):
     in Zotero. Also add the Zotero unique key to a running collection of items.
 
     Arguments:
-        parsed (dict): Citation represented as a dict
+        parsed (dict): Citation represented as a dict, which will be mutated
         collected (set): A collection of Zotero citation keys
         bib (dict): Bibliography, via custom JSON export from Zotero with BBT
     """
@@ -41,13 +41,13 @@ def process_citation(parsed, collected, bib):
     return parsed
 
 
-def sub_scannable(parsed, collected, bib):
+def sub_scannable(parsed, *args):
     if isinstance(parsed, dict):
-        process_citation(parsed, collected, bib)
+        process_citation(parsed, *args)
         return format_citation(parsed)
     elif isinstance(parsed, list):
-        return "; ".join([sub_scannable(item, collected, bib) for item in parsed])
+        return "; ".join([sub_scannable(item, *args) for item in parsed])
 
 
-def subst(parsed, collected, bib):
-    return f"[{sub_scannable(parsed, collected, bib)}]"
+def subst(parsed, *args):
+    return f"[{sub_scannable(parsed, *args)}]"
