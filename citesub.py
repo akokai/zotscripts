@@ -9,14 +9,10 @@ SCAN_RX = r"(\{.*?\|zu:\d+:[A-Z0-9]+\})(?:[^{])"
 CITE_RX = r"\{?\s?(?P<pre>.*?)\s?\|\s?(?P<noauth>[-]?)(?:.*?)\|\s?(?P<loc>.*?)\s?\|(?:.*?)\|zu:\d+:(?P<key>[A-Z0-9]+)\}?"
 
 
-def parse_multi(cites):
-    return [parse_scannable(cite) for cite in cites.split("}{")]
-
-
-def parse_scannable(cite):
-    if "}{" in cite:
-        return parse_multi(cite)
-    return re.match(CITE_RX, cite).groupdict()
+def parse_scannable(cites):
+    if "}{" in cites:
+        return [parse_scannable(cite) for cite in cites.split("}{")]
+    return re.match(CITE_RX, cites).groupdict()
 
 
 def format_citation(parsed):
